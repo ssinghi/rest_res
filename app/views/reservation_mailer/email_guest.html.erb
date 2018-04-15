@@ -1,0 +1,11 @@
+<h1>Your Reservation for <%= @restaurant.name %> is confirmed.</h1>
+
+<dl>
+  <dt>Reservattion Id:</dt><dd>#<%= @reservation.id %></dd>
+  <dt>Date:</dt><dd><%= l @reservation.date, format: :long %></dd>
+  <dt>Shift:</dt><dd><%= @reservation.shift.name %></dd>
+  <dt>Table:</dt><dd><%= @reservation.table.name %></dd>
+  <dt>Guests Count:</dt><dd><%= @reservation.guests_count %></dd>
+</dl>
+
+<p>Thanks!</p>

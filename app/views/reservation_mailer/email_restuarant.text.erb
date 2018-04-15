@@ -1,0 +1,11 @@
+New reservation details:
+
+Reservattion Id: #<%= @reservation.id %>
+Date: <%= l @reservation.date, format: :long %>
+Shift: <%= @reservation.shift.name %>
+Table: <%= @reservation.table.name %>
+Guest Name: <%= @guest.name %>
+Guest Email: <%= @guest.email %>
+Guests Count: <%= @reservation.guests_count %>
+
+Thanks!

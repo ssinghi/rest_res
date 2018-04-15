@@ -1,0 +1,21 @@
+<h1>Your Reservation for <%= @restaurant.name %> is updated.</h1>
+
+<p> Here are the updated details: </p>
+
+<dl>
+  <dt>Reservattion Id:</dt><dd>#<%= @reservation.id %></dd>
+  <dt>Date:</dt>
+  <dd>
+    <% if @changed_attributes[:time] %><strike><%= l @changed_attributes[:time], format: :long %></strike><% end %>
+    <%= l @reservation.time, format: :long %>
+  </dd>
+  <dt>Shift:</dt><dd><%= @reservation.shift.name %></dd>
+  <dt>Table:</dt><dd><%= @reservation.table.name %></dd>
+  <dt>Guests Count:</dt>
+  <dd>
+    <% if @changed_attributes[:guests_count] %><strike>@changed_attributes[:guests_count]</strike><% end %>
+    <%= @reservation.guests_count %>
+  </dd>
+</dl>
+
+<p>Thanks!</p>

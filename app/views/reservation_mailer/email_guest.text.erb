@@ -1,0 +1,10 @@
+Your Reservation is confirmed for <%= @reservation.table.restaurant.name %>.
+
+Reservattion Id: #<%= @reservation.id %>
+Date: <%= l @reservation.date, format: :long %>
+Shift: <%= @reservation.shift.name %>
+Table: <%= @reservation.table.name %>
+Guests Count: <%= @reservation.guests_count %>
+
+Hope to see you on <%= @reservation.date %>.
+Thanks

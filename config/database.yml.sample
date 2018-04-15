@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username:
+  password:
+
+development:
+  <<: *default
+  database: reservation_development
+
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: reservation_test

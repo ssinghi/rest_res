@@ -1,0 +1,17 @@
+Your Reservation for <%= @restaurant.name %> is updated.
+
+Here are the updated details:
+
+Reservattion Id:</dt><dd>#<%= @reservation.id %></dd>
+<% if @changed_attributes[:time] %>
+Previous Date: <%= l @changed_attributes[:time], format: :long %>
+<% end %>
+Date: <%= l @reservation.time, format: :long %>
+Shift: <%= @reservation.shift.name %>
+Table: <%= @reservation.table.name %></dd>
+<% if @changed_attributes[:guests_count] %>
+Previous Guests Count: <%= @changed_attributes[:guests_count] %>
+<% end %>
+Guests Count: <%= @reservation.guests_count %>
+
+Thanks!
