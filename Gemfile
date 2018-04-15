@@ -10,7 +10,10 @@ gem 'fast_jsonapi', '~> 1.1'
 gem 'rails', '~> 5.2.0'
 gem 'pg', '~> 1.0'
 gem 'puma', '~> 3.11'
+gem 'uglifier', '>= 1.3.0'
 gem 'will_paginate', '~> 3.1.0'
+
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'faker'

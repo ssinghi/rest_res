@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_04_15_193120) do
     t.citext "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_guests_on_email", unique: true
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -47,7 +48,6 @@ ActiveRecord::Schema.define(version: 2018_04_15_193120) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["guest_id"], name: "index_reservations_on_guest_id"
-    t.index ["shift_id", "time"], name: "index_reservations_on_shift_id_and_time"
     t.index ["shift_id"], name: "index_reservations_on_shift_id"
     t.index ["table_id"], name: "index_reservations_on_table_id"
   end

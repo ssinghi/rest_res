@@ -1,7 +1,7 @@
 New reservation details:
 
 Reservattion Id: #<%= @reservation.id %>
-Date: <%= l @reservation.date, format: :long %>
+Date: <%= l @reservation.time, format: :long %>
 Shift: <%= @reservation.shift.name %>
 Table: <%= @reservation.table.name %>
 Guest Name: <%= @guest.name %>

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Api::RestaurantsController, type: :controller do
   describe "GET #reservations" do
     let!(:shift) { create(:shift) }
-    let!(:reservations) { create_list(:reservation, 3, shift: shift) }
+    let!(:reservations) { create_list(:reservation, 150, shift: shift) }
     let(:parsed_response) { JSON.parse(response.body) }
 
     before do
@@ -11,11 +11,10 @@ RSpec.describe Api::RestaurantsController, type: :controller do
     end
 
     it "response should be success" do
-      expect(response).to be_success
-    end
-
-    it "should return all restaurants" do
-      expect(parsed_response['data'].length).to eq(reservations.count)
+      expect(response).to be_successful
+      expect(parsed_response["meta"]["total"]).to equal(reservations.count)
+      expect(parsed_response["data"].size).to equal(parsed_response["meta"]["per_page"])
+      expect(parsed_response["included"]).to_not be_empty
     end
   end
 end

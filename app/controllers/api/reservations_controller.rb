@@ -3,7 +3,7 @@ class Api::ReservationsController < Api::BaseController
     reservation = Reservation.new(reservation_params_for_create)
 
     if reservation.save
-      render status: :created
+      render status: :created, json: ReservationSerializer.new(reservation)
     else
       unprocessable!(reservation.errors)
     end
@@ -16,7 +16,7 @@ class Api::ReservationsController < Api::BaseController
 
     if reservation.save
       ReservationMailer.email_guest_with_updates(reservation, changed_attributes).deliver_now
-      render status: :ok
+      render status: :ok, json: ReservationSerializer.new(reservation)
     else
       unprocessable!(reservation.errors)
     end

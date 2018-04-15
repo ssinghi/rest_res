@@ -18,6 +18,7 @@ class Reservation < ApplicationRecord
 
   delegate :name, to: :guest, prefix: true
   delegate :name, to: :table, prefix: true
+  delegate :restaurant, to: :shift
 
   private
 
@@ -38,7 +39,7 @@ class Reservation < ApplicationRecord
   end
 
   def ensure_table_is_from_correct_restaurant
-    if shift && shift.restaurant != table.restaurant
+    if shift && table && shift.restaurant != table.restaurant
       errors.add(:table, "can't be from different restaurant")
     end
   end
